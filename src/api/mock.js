@@ -33,6 +33,9 @@ const devices = [
     alarm: null, params: [],
   },
 ];
+const temperatureBaselines = new Map(
+  devices.filter((device) => device.online).map((device) => [device.id, device.temp]),
+);
 
 // Sunucu davranışı taklidi: oturum çerezi yoksa oluşturur, her istekte süreyi uzatır.
 const SESSION_TTL_S = 30 * 60;
@@ -107,6 +110,47 @@ export async function getDevice(id) {
   const d = devices.find((x) => x.id === id);
   if (!d) throw new Error('Cihaz bulunamadı');
   return delay(d);
+}
+
+export async function getDeviceTemperatureHistory(id) {
+  const d = devices.find((x) => x.id === id);
+  if (!d) throw new Error('Cihaz bulunamadı');
+
+  const fallbackTemperatures = {
+    'xrvh60-3': 4.2,
+    'ewplus974-2': 3.8,
+  };
+  const latest = d.temp ?? fallbackTemperatures[id];
+  const now = Date.now();
+  const samples = Array.from({ length: 25 }, (_, index) => {
+    const progress = index / 24;
+    const variation = Math.sin(progress * Math.PI * 2) * 0.8 + progress * 0.25 - 0.25;
+    return {
+      time: new Date(now - (24 - index) * 60 * 60 * 1000).toISOString(),
+      temperature: Number((latest + variation).toFixed(1)),
+    };
+  });
+
+  return delay(samples);
+}
+
+export async function getLatestDeviceTemperature(id) {
+  const d = devices.find((x) => x.id === id);
+  if (!d) throw new Error('Cihaz bulunamadı');
+  if (!d.online) throw new Error('Cihaz çevrimdışı');
+
+  const baseline = temperatureBaselines.get(id);
+  const next = Number(
+    Math.max(baseline - 1, Math.min(baseline + 1, d.temp + (Math.random() - 0.5) * 0.4)).toFixed(1),
+  );
+  if (next === d.temp) {
+    const direction =
+      d.temp >= baseline + 1 ? -0.1 : d.temp <= baseline - 1 ? 0.1 : Math.random() < 0.5 ? -0.1 : 0.1;
+    d.temp = Number((d.temp + direction).toFixed(1));
+  } else {
+    d.temp = next;
+  }
+  return delay({ time: new Date().toISOString(), temperature: d.temp });
 }
 
 export async function updateParam(id, code, value) {

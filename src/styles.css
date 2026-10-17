@@ -558,6 +558,49 @@
     padding: 1.5rem;
   }
 
+  .temperature-history-card {
+    margin-block-start: 1.5rem;
+    overflow: hidden;
+    background-color: var(--bs-bg-1);
+    border-color: var(--bs-border-color-translucent);
+  }
+
+  .temperature-history-card .card-header {
+    padding: 1.25rem 1.5rem;
+    color: var(--bs-fg-body);
+    background-color: transparent;
+    border-color: var(--bs-border-color-translucent);
+  }
+
+  .temperature-history-card h2 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+  }
+
+  .temperature-history-card .card-header p {
+    margin: 0.4rem 0 0;
+    color: var(--bs-fg-2);
+    font-size: 0.875rem;
+  }
+
+  .temperature-history-card .card-body {
+    padding: 1rem 1.5rem 1.5rem;
+  }
+
+  .temperature-chart {
+    width: 100%;
+    min-height: 20rem;
+  }
+
+  .chart-message {
+    margin: 0;
+    padding: 2rem 0;
+    color: var(--bs-fg-2);
+    text-align: center;
+  }
+
   .param-field {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(7rem, 12rem);
