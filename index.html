@@ -8,10 +8,30 @@
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <nav class="navbar border-bottom">
+    <nav class="navbar app-navbar border-bottom">
       <div class="container">
-        <a class="navbar-brand" href="/">Frigora</a>
-        <span id="session-badge" class="badge text-bg-secondary">…</span>
+        <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+          <img src="/assets/logo.svg" alt="" width="28" height="28" />Frigora
+        </a>
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link active" href="/" aria-current="page" data-nav="/">Pano</a></li>
+        </ul>
+        <div class="profile-menu">
+          <button class="btn-subtle theme-secondary profile-trigger" type="button" data-bs-toggle="menu" data-bs-placement="bottom-end" aria-controls="profile-menu" aria-expanded="false" aria-label="Profil menüsü">
+            <span id="user-avatar" class="user-avatar">?</span>
+            <span id="user-name">Misafir</span>
+            <svg class="profile-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg>
+          </button>
+          <div class="menu profile-dropdown" id="profile-menu">
+            <div class="px-3 py-2">
+              <div id="user-fullname" class="fw-semibold">—</div>
+              <small id="user-role" class="fg-2"></small>
+              <div><span id="session-badge" class="badge badge-subtle theme-secondary mt-1">…</span></div>
+            </div>
+            <hr class="menu-divider" />
+            <button id="logout-btn" class="menu-item logout" type="button">Çıkış yap</button>
+          </div>
+        </div>
       </div>
     </nav>
     <main id="app" class="container py-3"></main>

@@ -31,7 +31,7 @@ export async function login(outlet) {
             <label class="form-label" for="password">Parola</label>
             <input class="form-control" id="password" name="password" type="password" autocomplete="current-password" required />
           </div>
-          <button class="btn btn-frigora w-100" type="submit">Giriş yap</button>
+          <button class="btn-solid theme-primary w-100" type="submit">Giriş yap</button>
         </form>
       </div>
     </div>`;

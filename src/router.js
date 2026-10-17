@@ -27,7 +27,7 @@ export function start(outlet) {
         return;
       }
     }
-    outlet.innerHTML = '<p class="text-body-secondary">Sayfa bulunamadı.</p>';
+    outlet.innerHTML = '<p class="fg-2">Sayfa bulunamadı.</p>';
   };
   addEventListener('popstate', render);
   // Aynı kökene giden normal bağlantıları sayfa yenilemeden yönlendir
