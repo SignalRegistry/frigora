@@ -72,6 +72,37 @@ const delay = (v) => new Promise((r) => setTimeout(() => r(structuredClone(v)), 
 
 export const listDevices = () => delay(devices);
 
+// Kayıt tutanakları: en yeni başta. Demo için sabit bir şablondan, geçmişe dönük zamanlarla üretilir.
+const recordTemplates = [
+  ['alarm', 'ewplus974-1', 'Yüksek sıcaklık alarmı başladı (-16.2 °C)'],
+  ['param', 'xrvh60-1', 'SP değeri 4 → 3 olarak değiştirildi'],
+  ['connection', 'xrvh60-3', 'Cihaz çevrimdışı oldu'],
+  ['alarm', 'ir33-1', 'Yüksek sıcaklık alarmı sona erdi (4.8 °C)'],
+  ['connection', 'ewplus974-2', 'Cihaz çevrimdışı oldu'],
+  ['param', 'ewplus974-1', 'diF değeri 3 → 2 olarak değiştirildi'],
+  ['connection', 'ir33-1', 'Cihaz çevrimiçi oldu'],
+  ['alarm', 'xrvh60-1', 'Düşük sıcaklık alarmı başladı (0.8 °C)'],
+  ['param', 'ir33-1', 'St değeri 5 → 4 olarak değiştirildi'],
+  ['alarm', 'xrvh60-1', 'Düşük sıcaklık alarmı sona erdi (2.9 °C)'],
+  ['connection', 'xrvh60-1', 'Cihaz çevrimiçi oldu'],
+  ['param', 'ewplus974-1', 'SP değeri -18 → -20 olarak değiştirildi'],
+];
+const users = ['Demo Kullanıcı', 'Sistem'];
+const records = recordTemplates.map(([type, deviceId, message], i) => {
+  const d = devices.find((x) => x.id === deviceId);
+  return {
+    id: `rec-${i + 1}`,
+    time: new Date(Date.now() - (i * 95 + 12) * 60 * 1000).toISOString(),
+    type,
+    deviceId,
+    deviceName: d.name,
+    message,
+    user: type === 'param' ? users[0] : users[1],
+  };
+});
+
+export const listRecords = () => delay(records);
+
 export async function getDevice(id) {
   const d = devices.find((x) => x.id === id);
   if (!d) throw new Error('Cihaz bulunamadı');

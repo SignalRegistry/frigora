@@ -34,6 +34,7 @@ View → `api` → (mock | HTTP). Görünümler `fetch` çağırmaz. Canlı veri
 | GET | `/devices` | `[{id, name, model, online, temp, alarm}]`; `model` "Marka Model" biçimindedir (Dixell, Eliwell, Carel...) |
 | GET | `/devices/:id` | cihaz + `params: [{code, label, value, min, max}]`; `code` markaya özgüdür (Dixell `SP`/`HY`, Eliwell `SP`/`diF`, Carel `St`/`rd`) |
 | PUT | `/devices/:id/params/:code` | gövde `{value}` |
+| GET | `/records` | `[{id, time (ISO), type: alarm\|param\|connection, deviceId, deviceName, message, user}]`, en yeni başta |
 | GET | `/session` | `{authenticated, user:{name, role}, expiresAt}`; oturum yoksa `401` |
 
 ## Oturum

@@ -23,6 +23,134 @@
     backdrop-filter: blur(18px) saturate(150%);
   }
 
+  .menu-toggle {
+    margin-inline-end: 1rem;
+    display: grid;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    place-items: center;
+    border-radius: var(--bs-radius-pill);
+  }
+
+  .menu-toggle svg,
+  .side-link svg {
+    width: 1.25rem;
+    height: 1.25rem;
+    fill: none;
+    stroke: currentcolor;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .side-drawer {
+    width: min(20rem, 88vw);
+  }
+
+  .app-shell {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .app-shell > main {
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  @media (min-width: 1024px) {
+    .side-drawer {
+      position: sticky !important;
+      inset: 4.5rem auto auto 0 !important;
+      display: flex !important;
+      width: 17rem !important;
+      max-width: none !important;
+      height: calc(100vh - 4.5rem) !important;
+      max-height: none !important;
+      flex: 0 0 17rem;
+      visibility: visible !important;
+      transform: none !important;
+      transition: none !important;
+      background-color: transparent !important;
+      border: 0 !important;
+      border-inline-end: var(--bs-border-width) solid var(--bs-border-color-translucent) !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+    }
+
+    .side-drawer .drawer-header,
+    .side-drawer .btn-close {
+      display: none;
+    }
+
+    .app-shell.side-hidden .side-drawer {
+      display: none !important;
+    }
+  }
+
+  .side-section-title {
+    margin-block-end: 0.5rem;
+    color: var(--bs-fg-2);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* Her öğe 3.75rem: ilk görünümde tam 3 cihaz, kalanı kaydırmayla */
+  .side-devices {
+    max-height: calc(3.75rem * 3);
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+  }
+
+  .side-device {
+    display: flex;
+    height: 3.75rem;
+    align-items: center;
+    gap: 0.75rem;
+    padding-inline: 0.5rem;
+    color: var(--bs-fg-body);
+    border-radius: var(--bs-radius);
+    text-decoration: none;
+  }
+
+  .side-device:hover,
+  .side-link:hover {
+    background-color: var(--bs-bg-2);
+  }
+
+  .side-device-text {
+    display: flex;
+    min-width: 0;
+    flex-direction: column;
+    line-height: 1.25;
+  }
+
+  .side-device-name,
+  .side-device-text small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .side-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 0.5rem;
+    color: var(--bs-fg-body);
+    border-radius: var(--bs-radius);
+    text-decoration: none;
+  }
+
+  .navbar-inner {
+    padding-inline: 0.75rem;
+  }
+
   .navbar-brand {
     font-weight: 700;
     letter-spacing: -0.03em;

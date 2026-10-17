@@ -27,6 +27,7 @@ const real = {
   logout: () => http('/logout', { method: 'POST' }),
   listDevices: () => http('/devices'),
   getDevice: (id) => http(`/devices/${id}`),
+  listRecords: () => http('/records'),
   updateParam: (id, code, value) =>
     http(`/devices/${id}/params/${code}`, { method: 'PUT', body: JSON.stringify({ value }) }),
 };

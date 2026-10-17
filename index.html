@@ -9,7 +9,10 @@
   </head>
   <body>
     <nav class="navbar app-navbar border-bottom">
-      <div class="container">
+      <div class="container-fluid navbar-inner">
+        <button class="btn-subtle theme-secondary menu-toggle" type="button" data-bs-toggle="drawer" data-bs-target="#side-drawer" aria-controls="side-drawer" aria-label="Yan menüyü aç">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" /></svg>
+        </button>
         <a class="navbar-brand d-flex align-items-center gap-2" href="/">
           <img src="/assets/logo.svg" alt="" width="28" height="28" />Frigora
         </a>
@@ -34,7 +37,26 @@
         </div>
       </div>
     </nav>
+    <div class="app-shell">
+    <dialog class="drawer drawer-start side-drawer" tabindex="-1" id="side-drawer" aria-labelledby="side-drawer-label">
+      <div class="drawer-header">
+        <h5 class="drawer-title" id="side-drawer-label">Menü</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Kapat"></button>
+      </div>
+      <div class="drawer-body">
+        <div class="side-section-title">Cihazlar</div>
+        <ul id="side-devices" class="side-devices list-unstyled" tabindex="0" aria-label="Cihaz listesi">
+          <li class="fg-2 px-2">Yükleniyor…</li>
+        </ul>
+        <hr class="menu-divider" />
+        <a class="side-link" href="/records">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.5h6l3 3v10H4zM10 1.5v3h3M6 8h5M6 11h5" /></svg>
+          Kayıt tutanakları
+        </a>
+      </div>
+    </dialog>
     <main id="app" class="container py-3"></main>
+    </div>
     <script type="importmap">
       { "imports": { "@yigithsyn/logger": "/node_modules/@yigithsyn/logger/index.js" } }
     </script>
