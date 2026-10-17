@@ -3,7 +3,7 @@ import { config } from '../config.js';
 
 const card = (d) => `
   <div class="col-12 col-sm-6 col-lg-4">
-    <a href="#/devices/${d.id}" class="card text-decoration-none h-100">
+    <a href="/devices/${d.id}" class="card text-decoration-none h-100">
       <div class="card-body d-flex justify-content-between align-items-center">
         <div>
           <div class="fw-semibold">${d.name}</div>
@@ -15,7 +15,7 @@ const card = (d) => `
     </a>
   </div>`;
 
-// Pano sayfası (#/): cihaz kartları. config.pollMs aralığıyla yenilenir.
+// Pano sayfası (/): cihaz kartları. config.pollMs aralığıyla yenilenir.
 // Dönen fonksiyon router tarafından sayfadan çıkılınca çağrılır (zamanlayıcıyı durdurur).
 export async function dashboard(outlet) {
   const load = async () => {

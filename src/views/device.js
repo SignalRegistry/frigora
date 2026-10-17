@@ -1,11 +1,11 @@
 import { api } from '../api/index.js';
 
-// Cihaz detay sayfası (#/devices/:id): cihaz bilgisi + parametre formu.
+// Cihaz detay sayfası (/devices/:id): cihaz bilgisi + parametre formu.
 // Çevrimdışı cihazda form devre dışıdır; Kaydet yalnızca değişen parametreleri API'ye yazar.
 export async function device(outlet, { id }) {
   const d = await api.getDevice(id);
   outlet.innerHTML = `
-    <a href="#/" class="d-inline-block mb-3">&larr; Cihazlar</a>
+    <a href="/" class="d-inline-block mb-3">&larr; Cihazlar</a>
     <h1 class="h4">${d.name}</h1>
     <p class="text-body-secondary">${d.model} · ${d.online ? `${d.temp} °C` : 'Çevrimdışı'}</p>
     <form id="params" class="vstack gap-3">

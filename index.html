@@ -1,23 +1,24 @@
 <!doctype html>
-<html lang="tr">
+<html lang="tr" data-bs-theme="dark">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>Frigora</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
     <nav class="navbar border-bottom">
       <div class="container">
-        <a class="navbar-brand" href="#/">Frigora</a>
+        <a class="navbar-brand" href="/">Frigora</a>
         <span id="session-badge" class="badge text-bg-secondary">…</span>
       </div>
     </nav>
     <main id="app" class="container py-3"></main>
     <script type="importmap">
-      { "imports": { "@yigithsyn/logger": "./node_modules/@yigithsyn/logger/index.js" } }
+      { "imports": { "@yigithsyn/logger": "/node_modules/@yigithsyn/logger/index.js" } }
     </script>
-    <script type="module" src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="src/main.js"></script>
+    <script type="module" src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>

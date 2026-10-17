@@ -22,6 +22,9 @@ async function http(path, options = {}) {
 
 const real = {
   getSession: () => http('/session'),
+  login: (username, password) =>
+    http('/login', { method: 'POST', body: JSON.stringify({ username, password }) }),
+  logout: () => http('/logout', { method: 'POST' }),
   listDevices: () => http('/devices'),
   getDevice: (id) => http(`/devices/${id}`),
   updateParam: (id, code, value) =>

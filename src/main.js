@@ -1,8 +1,9 @@
 // Giriş noktası: oturum rozetini bağlar, oturum yoklamasını başlatır, rotaları kaydeder.
 // Yeni sayfa eklemek için: views/ altına dosya aç, buraya route() satırı ekle.
-import { route, start } from './router.js';
+import { route, start, navigate } from './router.js';
 import { dashboard } from './views/dashboard.js';
 import { device } from './views/device.js';
+import { login } from './views/login.js';
 
 import { startSession, onSessionChange } from './session.js';
 
@@ -19,9 +20,14 @@ onSessionChange(({ status, session }) => {
   const [color, text] = labels[status];
   badge.className = `badge text-bg-${color}`;
   badge.textContent = session?.user ? `${session.user.name} · ${text}` : text;
+  // Oturum yoksa/bittiyse giriş sayfasına yönlendir
+  if ((status === 'anonymous' || status === 'expired') && location.pathname !== '/login') {
+    navigate('/login');
+  }
 });
 startSession();
 
+route('/login', login);
 route('/', dashboard);
 route('/devices/:id', device);
 start(document.getElementById('app'));

@@ -5,7 +5,7 @@ Kapsam: yalnızca web arayüzü. Backend ayrı projedir; bu proje yalnızca REST
 ## Teknoloji
 - Bootstrap 6 (`6.0.0-alpha.1`, sabit sürüm; alpha olduğu için güncelleme bilinçli yapılır). `npm install` ile gelir, `index.html` doğrudan `node_modules/bootstrap/dist` altından yükler.
 - Derleme aracı yok: saf HTML + CSS + tarayıcı ES modülleri (vanilla JS). `npm start` yalnızca statik sunucu açar.
-- Hash router (`#/...`): sunucu yönlendirme ayarı gerektirmez
+- History API router (temiz URL: `/login`, `/devices/:id`): sunucu bilinmeyen yolları `index.html`'e düşürmelidir (`serve -s`, nginx `try_files $uri /index.html`); varlık yolları köke göre mutlaktır
 - CDN yok: çevrimdışı paketlenebilir
 - Günlükleme: `@yigithsyn/logger` (import edilince `console.*` çıktısını renklendirir, zaman damgası ekler). Tarayıcıda yalın ad çözümü için `index.html` içinde import map vardır.
 - Bootstrap 6 paketi ES modülüdür; `index.html` içinde `type="module"` ile yüklenir (klasik script hata verir).
@@ -31,8 +31,8 @@ View → `api` → (mock | HTTP). Görünümler `fetch` çağırmaz. Canlı veri
 ## API sözleşmesi (backend ile mutabık kalınacak)
 | Metot | Yol | Açıklama |
 |---|---|---|
-| GET | `/devices` | `[{id, name, model, online, temp, alarm}]` |
-| GET | `/devices/:id` | cihaz + `params: [{code, label, value, min, max}]` |
+| GET | `/devices` | `[{id, name, model, online, temp, alarm}]`; `model` "Marka Model" biçimindedir (Dixell, Eliwell, Carel...) |
+| GET | `/devices/:id` | cihaz + `params: [{code, label, value, min, max}]`; `code` markaya özgüdür (Dixell `SP`/`HY`, Eliwell `SP`/`diF`, Carel `St`/`rd`) |
 | PUT | `/devices/:id/params/:code` | gövde `{value}` |
 | GET | `/session` | `{authenticated, user:{name, role}, expiresAt}`; oturum yoksa `401` |
 

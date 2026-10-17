@@ -35,6 +35,8 @@ async function check() {
   }
 }
 
+export const refreshSession = check;
+
 // main.js'ten bir kez çağrılır. Sekme gizliyken yoklamayı atlar, görünür olunca hemen yoklar.
 export function startSession() {
   check();
