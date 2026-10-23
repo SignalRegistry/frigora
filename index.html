@@ -1,66 +1,269 @@
 <!doctype html>
-<html lang="tr" data-bs-theme="dark">
+<html lang="tr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <title>Frigora</title>
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/src/styles.css" />
+    <meta name="description" content="Frigora, endüstriyel soğutmada cihaz ve marka ne olursa olsun veriyi tek yazılımda okur, raporlar ve değişkenlerine uzaktan müdahale eder." />
+    <title>Frigora — Endüstriyel soğutmada izleme</title>
+    <link rel="alternate" hreflang="tr" href="index.html" />
+    <link rel="alternate" hreflang="en" href="en.html" />
+    <link rel="stylesheet" href="src/site.css" />
   </head>
   <body>
-    <nav class="navbar app-navbar border-bottom">
-      <div class="container-fluid navbar-inner">
-        <button class="btn-subtle theme-secondary menu-toggle" type="button" data-bs-toggle="drawer" data-bs-target="#side-drawer" aria-controls="side-drawer" aria-label="Yan menüyü aç">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" /></svg>
-        </button>
-        <a class="navbar-brand d-flex align-items-center gap-2" href="/">
-          <img src="/assets/logo.svg" alt="" width="28" height="28" />Frigora
+    <div class="scroll-line" aria-hidden="true"></div>
+    <a class="skip" href="#icerik">İçeriğe geç</a>
+
+    <header class="site-header">
+      <div class="wrap header-bar">
+        <a class="brand" href="#giris">
+          <span class="brand-mark"><img src="assets/logo.svg" alt="" width="22" height="22" /></span>
+          Frigora
         </a>
-        <ul class="navbar-nav me-auto">
-          <li class="nav-item"><a class="nav-link active" href="/" aria-current="page" data-nav="/">Pano</a></li>
-        </ul>
-        <div class="profile-menu">
-          <button class="btn-subtle theme-secondary profile-trigger" type="button" data-bs-toggle="menu" data-bs-placement="bottom-end" aria-controls="profile-menu" aria-expanded="false" aria-label="Profil menüsü">
-            <span id="user-avatar" class="user-avatar">?</span>
-            <span id="user-name">Misafir</span>
-            <svg class="profile-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" /></svg>
-          </button>
-          <div class="menu profile-dropdown" id="profile-menu">
-            <div class="px-3 py-2">
-              <div id="user-fullname" class="fw-semibold">—</div>
-              <small id="user-role" class="fg-2"></small>
-              <div><span id="session-badge" class="badge badge-subtle theme-secondary mt-1">…</span></div>
+        <div class="header-tools">
+          <a class="nav-burger nav-open" href="#menu" aria-label="Menüyü aç"><span></span></a>
+          <nav class="site-nav" id="menu" aria-label="Sayfa">
+            <a class="nav-backdrop" href="#giris" aria-label="Menüyü kapat"></a>
+            <div class="nav-panel">
+              <div class="nav-panel-head">
+                <span>Menü</span>
+                <a class="nav-burger nav-shut" href="#giris" aria-label="Menüyü kapat"><span></span></a>
+              </div>
+              <a href="#yaklasim">Yaklaşım</a>
+              <a href="#yetenek">Yetenek</a>
+              <a href="#sistemler">Sistemler</a>
+              <a href="#kimler">Kimler için</a>
+              <div class="drawer-lang">
+                <p class="lang-caption">Dil</p>
+                <div class="lang" role="navigation" aria-label="Dil">
+                  <a href="index.html" lang="tr" hreflang="tr" aria-current="page">TR</a>
+                  <a href="en.html" lang="en" hreflang="en">EN</a>
+                </div>
+              </div>
             </div>
-            <hr class="menu-divider" />
-            <button id="logout-btn" class="menu-item logout" type="button">Çıkış yap</button>
+          </nav>
+          <div class="lang lang-bar" role="navigation" aria-label="Dil">
+            <a href="index.html" lang="tr" hreflang="tr" aria-current="page">TR</a>
+            <a href="en.html" lang="en" hreflang="en">EN</a>
           </div>
         </div>
       </div>
-    </nav>
-    <div class="app-shell">
-    <dialog class="drawer drawer-start side-drawer" tabindex="-1" id="side-drawer" aria-labelledby="side-drawer-label">
-      <div class="drawer-header">
-        <h5 class="drawer-title" id="side-drawer-label">Menü</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="drawer" aria-label="Kapat"></button>
+    </header>
+
+    <main id="icerik">
+      <section class="hero" id="giris">
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Endüstriyel soğutma</p>
+            <h1>Farklı markaların verisi, tek yazılımda.</h1>
+            <p class="lead">
+              Frigora, cihaz ve marka ne olursa olsun sahadaki veriyi anlamlandırır.
+              Okur, raporlar ve değişkenlerine uzaktan müdahale eder.
+            </p>
+            <div class="hero-actions">
+              <a class="button" href="#sistemler">Sistemleri incele</a>
+              <a class="text-link" href="#kimler">Kimler için</a>
+            </div>
+          </div>
+
+          <figure class="panel">
+            <svg class="scheme" viewBox="0 0 560 420" role="img" aria-label="Farklı cihaz verisinin Frigora üzerinde toplanıp okuma, rapor ve müdahaleye ayrılması">
+              <path class="flow" d="M168 78C230 78 236 168 292 188" />
+              <path class="flow" d="M168 210H292" />
+              <path class="flow" d="M168 342C230 342 236 250 292 228" />
+              <path class="flow flow-out" d="M356 188C410 168 418 78 452 78" />
+              <path class="flow flow-out" d="M356 210H452" />
+              <path class="flow flow-out" d="M356 228C410 250 418 342 452 342" />
+
+              <g class="node">
+                <rect x="16" y="46" width="152" height="64" rx="6" />
+                <text x="32" y="74">Soğuk oda</text>
+                <text class="sub" x="32" y="94">Kontrolör</text>
+              </g>
+              <g class="node">
+                <rect x="16" y="178" width="152" height="64" rx="6" />
+                <text x="32" y="206">Reyon</text>
+                <text class="sub" x="32" y="226">Kontrolör</text>
+              </g>
+              <g class="node">
+                <rect x="16" y="310" width="152" height="64" rx="6" />
+                <text x="32" y="338">Depo</text>
+                <text class="sub" x="32" y="358">Kontrolör</text>
+              </g>
+
+              <g class="core">
+                <circle cx="324" cy="210" r="40" />
+                <circle class="core-ring" cx="324" cy="210" r="52" />
+                <text x="324" y="214">Frigora</text>
+              </g>
+
+              <g class="node node-out">
+                <rect x="452" y="46" width="92" height="64" rx="6" />
+                <text x="498" y="84">Oku</text>
+              </g>
+              <g class="node node-out">
+                <rect x="452" y="178" width="92" height="64" rx="6" />
+                <text x="498" y="216">Rapor</text>
+              </g>
+              <g class="node node-out">
+                <rect x="452" y="310" width="92" height="64" rx="6" />
+                <text x="498" y="348">Müdahale</text>
+              </g>
+            </svg>
+            <figcaption>Şema anlatım içindir. Markaların kendi izleme düzenleri durur; Frigora veriyi tek yerde toplar.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="band" id="yaklasim">
+        <div class="wrap split reveal">
+          <div>
+            <p class="kicker">01 — Yaklaşım</p>
+            <h2>Ayrı izleme düzenleri, ortak bir saha.</h2>
+          </div>
+          <div class="prose">
+            <p>
+              Endüstriyel soğutmada çok sayıda izleme sistemi vardır. Her marka kendi düzeniyle çalışır.
+              Bu düzenlerin birbirini takip ettiği ortak bir yazılım sahada eksik kalmıştır.
+            </p>
+            <p>
+              Frigora bu katmandır. Cihaz ve marka değişse de veriyi tanımlar, aynı düzende okur
+              ve tesisteki değişkene uzaktan erişir.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="yetenek">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="kicker">02 — Yetenek</p>
+            <h2>Yazılımın gördüğü dört iş.</h2>
+          </div>
+          <ol class="caps">
+            <li class="reveal">
+              <span>01</span>
+              <h3>Anlamlandırma</h3>
+              <p>Gelen veriyi marka ve cihaza göre tanımlar. Tek bir model ailesine kilitli değildir.</p>
+            </li>
+            <li class="reveal">
+              <span>02</span>
+              <h3>Okuma</h3>
+              <p>Ölçüm ve durum bilgisini ayrı ekranlarda bırakmaz. Sahayı tek yazılımda toplar.</p>
+            </li>
+            <li class="reveal">
+              <span>03</span>
+              <h3>Raporlama</h3>
+              <p>Toplanan veriyi izlenebilir bir kayda çevirir. Değer, dağınık sistemlerde kaybolmaz.</p>
+            </li>
+            <li class="reveal">
+              <span>04</span>
+              <h3>Uzaktan müdahale</h3>
+              <p>Değişkenlere tesise her seferinde gitmeden erişilir. Müdahale, okumanın yanında durur.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <blockquote class="pull">
+        <p class="wrap reveal">
+          Yüksek yazılım ve donanım maliyeti doğuran uygulamalar, daha sade ve etkili bir yazılımla sunulur.
+        </p>
+      </blockquote>
+
+      <section class="section section-mist" id="sistemler">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="kicker">03 — Sistemler</p>
+            <h2>Marka değişir, katman aynı kalır.</h2>
+            <p class="deck">
+              Her kurulum kendi izleme düzeniyle gelir. Bu düzenler birbirini takip etmez.
+              Frigora mevcut cihazın yerine geçmez; veriyi tek yazılımda toplar.
+            </p>
+          </div>
+          <div class="systems">
+            <article class="reveal">
+              <p class="sys-brand">01</p>
+              <h3>Ayrı izleme</h3>
+              <p>Her marka kendi uzaktan izleme düzenini getirir. Saha, bu düzenler arasında bölünür.</p>
+            </article>
+            <article class="reveal">
+              <p class="sys-brand">02</p>
+              <h3>Ortak tesis</h3>
+              <p>Soğuk oda, reyon ve depo aynı yerde yan yana durur. İzleme ise her cihazda ayrı kalır.</p>
+            </article>
+            <article class="reveal">
+              <p class="sys-brand">03</p>
+              <h3>Tek yazılım</h3>
+              <p>Frigora bu veriyi okur, raporlar ve değişkene uzaktan erişir. Marka, ekranı değiştirmez.</p>
+            </article>
+          </div>
+          <p class="note reveal">
+            Kontrolörler farklı giriş ve çıkış sayılarıyla gelir.
+            Frigora belirli bir giriş-çıkış sayısına göre tanımlanmaz.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="kimler">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="kicker">04 — Kimler için</p>
+            <h2>Satış üç kesime göre kuruludur.</h2>
+          </div>
+          <div class="audiences">
+            <article class="reveal">
+              <h3>Soğutma sistemi üreticileri</h3>
+              <p>Kendi kurdukları tesisin izlemesini, içindeki marka karışımına rağmen tek yazılımda toplamak isteyen üreticiler.</p>
+            </article>
+            <article class="reveal">
+              <h3>Teknik servis firmaları</h3>
+              <p>Farklı marka cihazlara bakan ekipler. Okuma ve uzaktan müdahale, her marka için ayrı düzene dağılmaz.</p>
+            </article>
+            <article class="reveal">
+              <h3>Depo, kalite ve Ar-Ge</h3>
+              <p>Tesisin son kullanıcı tarafı. İklimlendirmeyi izleyen, kayıt tutan ve gerektiğinde değişkene bakan ekipler.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-mist" id="olcek">
+        <div class="wrap narrow reveal">
+          <p class="kicker">05 — Ölçek</p>
+          <h2>İklimlendirmeli alanın ölçüsü değişir.</h2>
+          <p>
+            Aynı tür uygulama çok farklı hacimlerde kurulur. Bir market reyonundaki süt dolabı ile geniş bir
+            ürün deposu, bu aralığı gösteren örneklerdir. Kapsam bu iki ölçüyle tanımlanmaz; iklimlendirmesi
+            olan alanlarda benzer kurulumlar vardır.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap footer-bar">
+        <div>
+          <a class="brand brand-on-dark" href="#giris">
+            <span class="brand-mark"><img src="assets/logo.svg" alt="" width="22" height="22" /></span>
+            Frigora
+          </a>
+          <p>Endüstriyel soğutmada markadan bağımsız izleme ve uzaktan müdahale.</p>
+        </div>
+        <nav aria-label="Alt">
+          <a href="#yaklasim">Yaklaşım</a>
+          <a href="#yetenek">Yetenek</a>
+          <a href="#sistemler">Sistemler</a>
+          <a href="#kimler">Kimler için</a>
+          <a href="#olcek">Ölçek</a>
+        </nav>
       </div>
-      <div class="drawer-body">
-        <div class="side-section-title">Cihazlar</div>
-        <ul id="side-devices" class="side-devices list-unstyled" tabindex="0" aria-label="Cihaz listesi">
-          <li class="fg-2 px-2">Yükleniyor…</li>
-        </ul>
-        <hr class="menu-divider" />
-        <a class="side-link" href="/records">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 1.5h6l3 3v10H4zM10 1.5v3h3M6 8h5M6 11h5" /></svg>
-          Kayıt tutanakları
-        </a>
+      <div class="wrap footer-meta">
+        <span>© 2026 Frigora</span>
+        <div class="lang lang-on-dark" role="navigation" aria-label="Dil">
+          <a href="index.html" lang="tr" hreflang="tr" aria-current="page">TR</a>
+          <a href="en.html" lang="en" hreflang="en">EN</a>
+        </div>
       </div>
-    </dialog>
-    <main id="app" class="container py-3"></main>
-    </div>
-    <script type="importmap">
-      { "imports": { "@yigithsyn/logger": "/node_modules/@yigithsyn/logger/index.js" } }
-    </script>
-    <script type="module" src="/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="/src/main.js"></script>
+    </footer>
   </body>
 </html>

@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.1.0",
   "scripts": {
-    "start": "npx --yes serve -s ."
+    "start": "npx --yes serve ."
   },
   "dependencies": {
     "@yigithsyn/logger": "^2.0.0",
